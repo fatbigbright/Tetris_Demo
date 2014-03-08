@@ -1,10 +1,11 @@
 window.onload = function(){
-    var music = document.getElementById('music');
-    music.addEventListener('dragover', function(e){
+    var music = document.querySelector('#music');
+    var list = document.querySelector('.list');
+    list.addEventListener('dragover', function(e){
         e.preventDefault();
     });
 
-    music.addEventListener('drop', function(e){
+    list.addEventListener('drop', function(e){
         e.stopPropagation();
         e.preventDefault();
 

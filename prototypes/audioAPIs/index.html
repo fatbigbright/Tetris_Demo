@@ -5,8 +5,26 @@
     <title>Music Player</title>
     <style>
         .container{
-            width: 500px;
-            text-align: center;
+            width: 600px;
+            height: 500px;
+        }
+        .player{
+            width: 280px;
+            float: left;
+        }
+        .list{
+            background-color: #eee;
+            width: 280px;
+            height: 100%;
+            margin-left: 500px;
+            border-width: 5px;
+            border-radius: 15px;
+            box-shadow: 10px 5px 3px grey;
+            padding-top: 5px;
+            padding-left: 5px;
+        }
+        #music{
+            margin-left: 50px;
         }
     </style>
     <script src="main.js"></script>
@@ -14,7 +32,12 @@
 <body>
     <h1>Drag a music file to the player.</h1>
     <div class="container">
-        <audio id="music" controls></audio>
+        <div class="player">
+            <audio id="music" controls></audio>
+        </div>
+        <div class="list">
+            <p>ABC</p>
+        </div>
     </div>
 </body>
 </html>
