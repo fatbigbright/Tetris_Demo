@@ -1,6 +1,8 @@
 window.onload = function(){
     var music = document.querySelector('#music');
     var list = document.querySelector('.list');
+    var listedFiles = {};
+    var selectedFile = null;
     list.addEventListener('dragover', function(e){
         e.preventDefault();
     });
@@ -15,11 +17,26 @@ window.onload = function(){
 
         if(fileList.length <= 0) return;
 
+        listedFiles[fileList[0].name] = fileList[0];
+
+        var newMusicNode = document.createElement('div');
+        newMusicNode.innerText = fileList[0].name;
+        list.appendChild(newMusicNode);
+        newMusicNode.onclick = function(){
+            if(selectedFile != null){
+                selectedFile.className = "unSelectedMusic";
+            }
+            selectedFile = this;
+            this.className = "selectedMusic";
+        };
+
+        /*
         var fileReader = new FileReader();
         fileReader.onload = function(e){
             music.src = e.target.result;
             music.play();
         };
         fileReader.readAsDataURL(fileList[0]);
+        */
     });
 };
