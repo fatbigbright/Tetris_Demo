@@ -30,6 +30,17 @@ window.onload = function(){
             this.className = "selectedMusic";
         };
 
+        newMusicNode.ondblclick = function(){
+            if(listedFiles[this.innerText]){
+                var fileReader = new FileReader();
+                fileReader.onload = function(e){
+                    music.src = e.target.result;
+                    music.play();
+                };
+                fileReader.readAsDataURL(listedFiles[this.innerText]);
+            }
+        };
+
         /*
         var fileReader = new FileReader();
         fileReader.onload = function(e){
