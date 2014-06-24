@@ -14,6 +14,18 @@ window.onload = function(){
     height: 720,
     block_width: 30,
     block_height: 30,
+    maxAxisX: 10,
+    maxAxisY: 24,
+    frame: [],
+    init: function(){
+      this.frame = new Array();
+      for(var x = 0; x < maxAxisX; x++){
+        this.frame[0] = new Array();
+        for(var y = 0; y < maxAxisY; y++){
+          this.frame[x][y] = 0;
+        }
+      }
+    },
     draw: function(){
       this.position.x = (canvasWidth - this.width)/2;
       this.position.y = (canvasHeight - this.height)/2;
@@ -29,17 +41,32 @@ window.onload = function(){
     }
   };
 
-  /*
   var game = {
-    var shape1 = [[0,0,0,1,1,1,1,2],[1,0,2,0,0,1,1,1]];
-    var shape2 = [];
-    var shape3 = [];
-    var shape4 = [];
-    var shape5 = [];
-    var shape6 = [];
-    var shape7 = [];
-  };
-  */
+    0 : [[0,1,0,0,
+          0,1,0,0,
+          0,1,1,0,
+          0,0,0,0],
 
-  stage.draw();
+         [0,0,0,0,
+          0,0,0,1,
+          0,1,1,1,
+          0,0,0,0],
+          
+         [0,0,1,1,
+          0,0,0,1,
+          0,0,0,1,
+          0,0,0,0],
+         
+         [0,0,0,1,
+          0,1,1,1,
+          0,0,0,0,
+          0,0,0,0]]
+  };
+
+  //stage.draw();
+  var FPS = 30;
+  setInterval(function(){
+    context.clearRect(0, 0, canvasWidth, canvasHeight);
+    stage.draw();
+  }, 1000/FPS);
 };
